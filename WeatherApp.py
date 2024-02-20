@@ -4,7 +4,7 @@ api_key = 'Provide_API_Key'
 
 nameOfCity = input("Provide the name of the city: ")
 
-result = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={nameOfCity}&appid={api_key}')
+result = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={nameOfCity}&appid={api_key}', timeout=60)
 
 if result.status_code == 200:
     data = result.json()
