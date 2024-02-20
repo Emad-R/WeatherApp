@@ -1,10 +1,11 @@
-import requests
 import pytemperature
+from security import safe_requests
+
 api_key = 'Provide_API_Key'
 
 nameOfCity = input("Provide the name of the city: ")
 
-result = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={nameOfCity}&appid={api_key}')
+result = safe_requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={nameOfCity}&appid={api_key}')
 
 if result.status_code == 200:
     data = result.json()
